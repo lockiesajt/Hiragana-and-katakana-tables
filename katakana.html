@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+            //0 for hiragana 1 for katakana
+            var kanatype = 1;
+            function get_kanatype() {
+            if (kanatype===0){
+                document.write("Hiragana");
+            }
+            else if(kanatype===1){
+               document.write("Katakana"); 
+            }
+        
+            }
+        </script>
+        <title><script>get_kanatype();</script></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/headers.css" rel="stylesheet" type="text/css"/>
+        <link href="style/header2.css" rel="stylesheet" type="text/css"/>
+        <link href="style/fontsize.css" rel="stylesheet" type="text/css"/>
+        <link href="style/kanabutton.css" rel="stylesheet" type="text/css"/>
+        <link href="style/general.css" rel="stylesheet" type="text/css"/>
+        <script src="vars.js" type="text/javascript"></script>
+        <style>
+            html { 
+                background: url(images/rice_paper.jpg) no-repeat center center fixed; 
+                background-size: cover;
+            }
+
+            body { 
+                color: white; 
+            }
+
+        </style>
+        <script>
+            function nav_back() {
+                window.location.href = "index.html";
+            }
+            function writeblank() {
+                document.write('<td></td>');
+            }
+            function writebutton(writei) {
+                var buttdec1 = '<td class="center"><a href=katakanadisp.html?index='+writei+' class="kanabtn"><h2 class="kana">';
+                var buttdec2 = '</h2><h2 class="romaji">';
+                var buttdec3 = '</h2></a></td>';
+                document.write(buttdec1);
+                writekana(writei, 1,kanatype);
+                document.write(buttdec2);
+                writekana(writei, 0,kanatype);
+                document.write(buttdec3);
+            }
+        </script>
+    </head>
+    <body>
+        <section class="skin-organic" role="region" style="position:fixed; width:100%">
+            <header >
+                <button id="backhiragana" onclick="nav_back()"><span class="icon icon-back">back</span></button>
+                <h1>Katakana</h1>
+            </header>
+        </section>
+        <div style="padding-top: 50px">
+        <script>
+            var index = 0;
+            document.write('<table style="width:100%" class="center">');
+            for (i = 0; i < 12; i++) {
+                document.write('<tr>');
+                for (j = 0; j < 5; j++) {
+                    writebutton(index);
+                    index++;
+                }
+                document.write('</tr>');
+            }
+            document.write('<tr>');
+            writebutton(index);
+            index++;
+            writeblank();
+            writebutton(index);
+            index++;
+            writeblank();
+            writebutton(index);
+            index++;
+            document.write('</tr>');
+            document.write('<tr>');
+            for (j = 0; j < 5; j++) {
+                writebutton(index);
+                index++;
+            }
+            document.write('</tr>');
+            document.write('<tr>');
+            writebutton(index);
+            index++;
+            writeblank();
+            writeblank();
+            writeblank();
+            writebutton(index);
+            index++;
+            document.write('</tr>');
+            document.write('<tr>');
+            writeblank();
+            writeblank();
+            writebutton(index);
+            index++;
+            writeblank();
+            writeblank();
+            document.write('</tr>');
+            document.write('</table>');
+            document.write('<br/>');
+            document.write('<table style="width:100%" class="center">');
+            for (i = 0; i < 11; i++) {
+                document.write('<tr>');
+                for (j = 0; j < 3; j++) {
+                    writebutton(index);
+                    index++;
+                }
+                document.write('</tr>');
+            }
+            document.write('</table>');
+        </script>
+        </div>
+    </body>
+</html>

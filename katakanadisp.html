@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Katakana</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/headers.css" rel="stylesheet" type="text/css"/>
+        <link href="style/header2.css" rel="stylesheet" type="text/css"/>
+        <script src="vars.js" type="text/javascript"></script>
+        <style>
+            html { 
+                background: url(images/rice_paper.jpg) no-repeat center center fixed; 
+                background-size: cover;
+            }
+
+            body { 
+                color: white; 
+            }
+            h1.kana{
+
+                color: black;
+            }
+            div.main{
+                margin-top:80px;
+            }
+            div.kana{
+                display:inline-block;
+                color:black;
+                text-align:center;  
+                background-color:white;
+                margin-left: 10vmin;
+                margin-right: 10vmin;
+                padding:auto;
+                width: 80vmin; 
+                height: 60vmin;
+                box-shadow: 10px 10px 5px #888888;
+                font-weight: bold;
+                font-size:35vmin;
+                border:solid;
+                border-color:#000;
+                margin-bottom:5vmin;
+                vertical-align: middle;
+
+            }
+            div.secondrow{
+                display:inline-block;
+                padding-top:5vw;
+                width: 80vmin; 
+                margin-left:10vmin;
+
+            }
+            div.secondrowtable{
+                margin: 0 auto;
+                display: table;
+
+            }
+            div.rowelementleft{
+                width:23vmin;
+                text-align: left;
+                display:table-cell;
+                font-size: 15vmin;
+
+
+            }         
+            div.rowelementright{
+                width:23vmin;
+                text-align: right;
+                display:table-cell;
+                font-size: 15vmin;
+
+            }
+            div.romaji{
+                width:23vmin;
+                color:blue;
+                text-align: center;
+                font-weight: bold;
+                font-size: 13vmin;
+                text-shadow:3px 3px 1px #888888;
+                display:table-cell;
+            }
+            button.nav{
+                border: 0;
+                background:transparent;
+                font-size: 15vmin;
+                text-shadow:3px 3px 1px #888888;
+            }
+        </style>
+        <script>
+            var kanaindex = Number(location.search.split('index=')[1] ? location.search.split('index=')[1] : '0');
+
+            function nav_back() {
+                window.location.href = "katakana.html";
+            }
+            function nav_left() {
+                if (kanaindex > 0)
+                {
+                    kanaindex--;
+                    window.location.href = "katakanadisp.html?index=" + kanaindex;
+                }
+            }
+            function nav_right() {
+
+                if (kanaindex < kanamax() - 1)
+                {
+                    kanaindex++;
+                    window.location.href = "katakanadisp.html?index=" + kanaindex;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <section class="skin-organic" role="region" style="position:fixed; width:100%; top:0;">
+            <header>
+                <button id="backhiragana" onclick="nav_back()"><span class="icon icon-back">back</span></button>
+                <h1>Katakana</h1>
+            </header>
+
+        </section>
+        <div class="main">
+            <div class="kana">
+                <script>
+                    writekana(kanaindex, 1, 1);
+                </script>
+            </div>
+            <div class="secondrow">
+                <div class="secondrowtable">
+                    <div class="rowelementleft">
+                        <button class="nav" onclick="nav_left()">
+                            &lt;
+                        </button>
+                    </div>
+                    <div class="romaji">
+                        <script>
+                            writekana(kanaindex, 0, 1);
+                        </script>
+                    </div>
+                    <div class="rowelementright">
+                        <button class="nav" onclick="nav_right()">
+                            &gt;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

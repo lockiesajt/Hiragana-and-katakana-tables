@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Hiragana and Katakana tables</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style/headers.css" rel="stylesheet" type="text/css"/>
+        <link href="style/buttons.css" rel="stylesheet" type="text/css"/>
+        <link href="style/header2.css" rel="stylesheet" type="text/css"/>
+        <link href="style/fontsize.css" rel="stylesheet" type="text/css"/>
+        <script src="fn.js" type="text/javascript"></script>
+        <style>
+            html { 
+                background: url(images/rice_paper.jpg) no-repeat center center fixed; 
+                background-size: cover;
+            }
+
+            body { 
+                color: white; 
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <section class="skin-organic" role="region">
+            <header>
+                <button id="close"><span class="icon icon-close">close</span></button>
+                <h1>Hiragana and Katakana</h1>
+            </header>
+        </section>
+        <section style="margin-bottom: 30px">
+            <!-- Default, primary action, and danger buttons -->
+            <button id="hiragana" class="bb-button recommend" onclick="nav_hiragana()">Hiragana - ひらがな</button>
+            <button id="katakana" class="bb-button recommend" onclick="nav_katakana()">Katakana - カタカナ</button>
+        </section>
+
+        <script>
+            function nav_hiragana() {
+                window.location.href = "hiragana.html";
+            }
+            function nav_katakana() {
+                window.location.href = "katakana.html";
+            }
+
+        </script>
+    </body>
+</html>
